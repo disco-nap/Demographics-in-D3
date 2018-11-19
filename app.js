@@ -1,6 +1,3 @@
-
-
-
 // set the SVG height and width
 var svgWidth = 960;
 var svgHeight = 500;
@@ -27,6 +24,11 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+var xScale = d3.scaleLinear()
+var yLinearScale = d3.scaleLinear()
+var leftAxis = d3.axisLeft(yLinearcale)
+var bottomAxis = d3axisBottom(xScale);
+
 
 // Retrieve data from the CSV file and execute everything below
 d3.csv("data.csv", function(err, demoData) {
@@ -43,8 +45,8 @@ d3.csv("data.csv", function(err, demoData) {
 });
 
 
-// Initial Params
-var XAxis = "smokes";
+// // Initial Params
+// var XAxis = "smokes";
 
 // xLinearScale function above csv import
 var xLinearScale = xScale(demoData, XAxis);
@@ -93,7 +95,5 @@ var circlesGroup = chartGroup.selectAll("circle")
     .attr("x", 0 - (height / 2))
     .attr("dy", "1em")
     .classed("axis-text", true)
-    .text("Number of Billboard 500 Hits");
+    .text("Median income");
 
-  // updateToolTip function above csv import
-  var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
